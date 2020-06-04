@@ -2,7 +2,7 @@
 #include<stdio.h>
 #include<stdlib.h>
 #include "fopeno.h"
-#define MAX 10000
+#define MAX 100000
  
 int n;    /*Number of vertices in the graph*/
 void create_graph();
@@ -20,7 +20,7 @@ void insert_queue(int vertex)
                         front = 0;
                 rear = rear+1;
                 queue[rear] = vertex ;
-                printf("\nVertex %d inserted to queue",vertex+1);
+              //  printf("\nVertex %d inserted to queue",vertex+1);
         }
 }
  
@@ -45,7 +45,7 @@ int delete_queue()
                 del_item = queue[front];
                 front = front+1;
                 return del_item;
-                printf("\nVertex %d deleted from queue",del_item);
+               // printf("\nVertex %d deleted from queue",del_item);
         }
 }
  
@@ -82,14 +82,17 @@ void create_graph()
         printf("\n Please type .mtx file to import: ");
         scanf("%s",file);
         fileImport(file);
-        printM();
+        if(rowNum<20){
+            printM();
+        }
         n=rowNum;
         max_edges = rowNum*columnNum;
         printf("\nMaximum number of edges are %d",max_edges);
         for (int i = 0 ; i < rowNum; i++) {
             for (int j = 0; j < columnNum; j++) {
 		        if(M[i][j]==1){
-                    printf("\nEdge from %d to %d", i+1,j+1);
+                    if(rowNum<50){
+                    printf("\nEdge from %d to %d", i+1,j+1);}
                    origin=i;
                    //printf("origin is %d",origin);
                    destin=j;
@@ -146,5 +149,5 @@ int main()
         printf("\n");
  
         return 0;
-}/*End of main()*/
+}
  

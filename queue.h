@@ -11,7 +11,7 @@ void enqueue(int value) {
       front = 0;
     rear++;
     items[rear] = value;
-    printf("\nInserted -> %d", value);
+    printf("\nInserted -> %d\n", value);
   }
 
 
