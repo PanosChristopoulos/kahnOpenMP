@@ -55,6 +55,12 @@ void printM() {
 		printf("\n");
 	}
 }
+
+
+int getfunction()
+{
+return edgesNum;
+}
 /*
 void edges(){
 	int i,j;
